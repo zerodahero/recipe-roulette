@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/recipes', 'RecipeController');
+    Route::resource('/meals', 'MealController');
+    Route::get('/roulette', 'RouletteController@index')->name('roulette');
+    Route::post('/roulette', 'RouletteController@play')->name('roulette.play');
+    Route::post('/roulette/meals', 'RouletteController@store')->name('roulette.store');
+});

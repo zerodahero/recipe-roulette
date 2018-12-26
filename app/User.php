@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Recipe;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,4 +28,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relationship to the user's recipes
+     *
+     * @see App\Recipe::class
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function recipes()
+    {
+        return $this->belongsToMany(Recipe::class, 'recipes_users');
+    }
 }
