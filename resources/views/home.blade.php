@@ -16,13 +16,13 @@
 
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <a class="list-group-item list-group-item-action" href="#">Add a recipe</a>
-                            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="/recipes">
+                            <a class="list-group-item list-group-item-action" href="{{ route('recipes.create') }}">Add a recipe</a>
+                            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="{{ route('recipes.index') }}">
                                 Browse recipes
                                 <span class="badge badge-primary badge-pill">{{ auth()->user()->recipes->count() }}</span>
                             </a>
                             <a class="list-group-item list-group-item-action list-group-item-primary" href="{{ route('roulette') }}">Play Roulette!</a>
-                            <a class="list-group-item list-group-item-action" href="{{ route('meals.index') }}">Show meal plan</a>
+                            <a class="list-group-item list-group-item-action" href="{{ route('meals.index') }}">Show meal plans</a>
                         </ul>
                     </div>
                 </div>

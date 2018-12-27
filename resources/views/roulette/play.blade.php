@@ -22,6 +22,9 @@
                                 </div>
                                 <div class="col">
                                     {{ $recipe->name }}
+                                    @foreach ($recipe->tags as $tag)
+                                        <span class="badge">{{ $tag->tag }}</span>
+                                    @endforeach
                                     <input type="hidden" name="meals[{{ $loop->index }}][recipe_id]" value="{{ $recipe->id }}" />
                                 </div>
                             </div>
